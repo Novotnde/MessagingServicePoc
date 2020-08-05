@@ -1,0 +1,6 @@
+{
+  //To use succesfuly you have to register with Twilio and replace with your authentification details
+  "AccountSID": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "AuthToken": "c2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+}

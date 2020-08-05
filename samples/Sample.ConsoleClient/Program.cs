@@ -7,7 +7,7 @@ using Twilio;
 namespace Poc_MessagingService
 {
     class Program
-    { 
+    {
         static void Main(string[] args)
         {
             TwilioSenderExtensions.InitTwilioClient(AppConstants.AccountSid, AppConstants.AuthToken);

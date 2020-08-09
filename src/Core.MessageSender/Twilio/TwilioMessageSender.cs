@@ -26,7 +26,7 @@ namespace Core.MessageSender.Twilio
             return MapMessageResult(msg);
         }
 
-        public async Task<MessageResult>SendAsync(Message message)
+        public async Task<MessageResult> SendAsync(Message message)
         {
             if (message is null)
             {

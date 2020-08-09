@@ -1,10 +1,12 @@
 ﻿using System;
 using System.IO;
+using Amazon;
+using Amazon.SimpleEmail;
+using Amazon.SimpleEmail.Model;
 using Core.MessageSender.Contracts.Models;
+using Core.MessageSender.SimpleEmailService;
 using Core.MessageSender.Twilio;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
-using Twilio;
 
 namespace Poc_MessagingService
 {
@@ -17,8 +19,19 @@ namespace Poc_MessagingService
         static void Main(string[] args)
         {
             GetAuthentificationDetails();
+            var client = SesSenderExtension.JsonParse();
+            var sesEmailSender = new SesEmailSender(client);
+            var email = new EmailMessage()
+            {
+                Sender = "novotnde@gmail.com",
+                Reciever = "novotnde@gmail.com",
+                Subject = "test",
+                Body = "test",
+            };
+
+            var response = sesEmailSender.Send(email);
             var messageSender = new TwilioMessageSender();
-            var message = new Message()
+            var message = new Core.MessageSender.Contracts.Models.Message()
             {
                 Body = "test",
                 Sender = "+12057827167",

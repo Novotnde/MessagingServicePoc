@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Core.MessageSender.Contracts.Models
+namespace MessagingWebApplication.Models
 {
-   public class Message
-   {
+    public class SmsMessage
+    {
+        public int Id { get; set; }
+
         public string Sender { get; set; }
 
         public string Reciever { get; set; }
 
         public string Body { get; set; }
-
-   }
+    }
 }

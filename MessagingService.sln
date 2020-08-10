@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{AC6AD687-A62B-4DAF-B636-FA0AB978F680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagingWebApplication", "MessagingWebApplication\MessagingWebApplication.csproj", "{A6973775-2220-4C97-8E49-9885F388D108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingWebApplication", "MessagingWebApplication\MessagingWebApplication.csproj", "{A6973775-2220-4C97-8E49-9885F388D108}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,7 +42,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A833A45-3252-47AB-A6EC-E363A2A6846F} = {AC6AD687-A62B-4DAF-B636-FA0AB978F680}
-		{A6973775-2220-4C97-8E49-9885F388D108} = {AC6AD687-A62B-4DAF-B636-FA0AB978F680}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B38F434D-703E-4FCC-9A9E-45698625744F}

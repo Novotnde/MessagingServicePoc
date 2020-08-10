@@ -12,12 +12,12 @@ namespace MessagingWebApplication.Controllers
 {
     public class MessageController : Controller
     {
-    //    private IMessageSender _messageSender;
+        private readonly ILogger<MessageController> _logger;
+        public MessageController(ILogger<MessageController> logger)
+        {
+            _logger = logger;
+        }
 
-    //    public MessageController(IMessageSender messageSender)
-    //    {
-    //        this._messageSender = messageSender;
-    //    }
         public IActionResult Sms()
         {
             
@@ -29,14 +29,6 @@ namespace MessagingWebApplication.Controllers
 
             return View();
         }
-
-        private readonly ILogger<MessageController> _logger;
-
-        public MessageController(ILogger<MessageController> logger)
-        {
-            _logger = logger;
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

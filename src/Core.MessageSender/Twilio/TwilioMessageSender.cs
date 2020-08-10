@@ -22,7 +22,6 @@ namespace Core.MessageSender.Twilio
                body: message.Body,
                from: new PhoneNumber(message.Sender),
                to: new PhoneNumber(message.Reciever));
-
             return MapMessageResult(msg);
         }
 

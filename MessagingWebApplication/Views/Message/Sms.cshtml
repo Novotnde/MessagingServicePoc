@@ -1,32 +1,32 @@
-﻿@model MessagingWebApplication.Models.SmsMessage
+﻿@model MessagingWebApplication.ViewModel.MessageViewModel
 
 @{ ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>New Sms</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("MessageStatus", "Message"))
 {
     @Html.ValidationSummary()
     <div class="form-group">
-        @Html.LabelFor(m => m.Reciever)
-        @Html.TextBoxFor(m => m.Reciever)
-        @Html.ValidationMessageFor(m => m.Reciever)
+        @Html.LabelFor(m => m.Message.Reciever)
+        @Html.TextBoxFor(m => m.Message.Reciever, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Message.Reciever)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Sender)
-        @Html.TextBoxFor(m => m.Sender)
-        @Html.ValidationMessageFor(m => m.Sender)
+        @Html.LabelFor(m => m.Message.Sender)
+        @Html.TextBoxFor(m => m.Message.Sender, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Message.Sender)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Body)
-        @Html.TextBoxFor(m => m.Body)
-        @Html.ValidationMessageFor(m => m.Body)
+        @Html.LabelFor(m => m.Message.Body)
+        @Html.TextBoxFor(m => m.Message.Body, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Message.Body)
     </div>
 
-    @Html.HiddenFor(m => m.Id)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>
+    @*@Html.HiddenFor(m => m.SmsMessage.Id)
+    @Html.AntiForgeryToken()*@
+    <button type="submit" class="btn btn-primary">Send</button>
 
 
 }

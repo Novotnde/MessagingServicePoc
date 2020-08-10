@@ -15,7 +15,7 @@ namespace MessagingWebApplication.Controllers
         private readonly ILogger<MessageController> _logger;
         public MessageController(ILogger<MessageController> logger)
         {
-            _logger = logger;
+            _logger = logger; 
         }
 
         public IActionResult Sms()

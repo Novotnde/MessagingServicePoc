@@ -7,9 +7,9 @@ namespace Core.MessageSender.Contracts.Models
 {
    public class Message
     {
-        public int Id { get; set; }
-
         [Key]
+        public int MessageId { get; set; }
+
         [Required]
         public string Sender { get; set; }
 
@@ -19,7 +19,5 @@ namespace Core.MessageSender.Contracts.Models
         [Required]
         public string Body { get; set; }
 
-        public string MessageSid { get; }
-
-    }
+   }
 }

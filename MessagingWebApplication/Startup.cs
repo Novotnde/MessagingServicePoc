@@ -31,14 +31,16 @@ namespace MessagingWebApplication
             services.AddControllersWithViews();
             ConfigureDependencyInjection(ref services);
             ConfigureTwilio();
+          
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 
         private void ConfigureTwilio()
         {
-            var twilioAccountSID = "xxxxxx";
-            var twilioAuthToken = "xxxxx";
+            var twilioAccountSID = "AC4fd78b7c21f0e6523a001c0a7fde0bae";
+            var twilioAuthToken = "c2c9aa3013caad1bb072edddfd55b909";
 
             TwilioSenderExtensions.InitTwilioClient(twilioAccountSID, twilioAuthToken);
         }

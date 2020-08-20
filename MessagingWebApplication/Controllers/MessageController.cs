@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Core.MessageSender.Contracts;
 using Core.MessageSender.Contracts.Models;
 using MessagingWebApplication.Models;
 using MessagingWebApplication.ViewModel;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace MessagingWebApplication.Controllers
 {
@@ -18,10 +13,10 @@ namespace MessagingWebApplication.Controllers
         private ApplicationDbContext _context;
 
         private IMessageSender _messageSender;
-        public MessageController(IMessageSender messageSender)
+        public MessageController(IMessageSender messageSender, ApplicationDbContext context)
         {
             this._messageSender = messageSender;
-            _context = new ApplicationDbContext();
+            this._context = context;
         }
 
         public ActionResult Sms()
@@ -42,14 +37,20 @@ namespace MessagingWebApplication.Controllers
         }
 
         [ActionName("MessageStatus")]
-        public ActionResult Send(Message message)
+        public ActionResult SendAsync(Message message)
         {
             var viewModel = new MessageViewModel
             {
-                Message = new Message(),
-             };
-             _context.SaveChanges();
-             _messageSender.Send(message);
+                Message = new Message()
+                {
+                    
+                }
+                
+            };
+            _context.Messages.Add(message);
+            _context.SaveChanges();
+            _messageSender.SendAsync(message);
+
             return View("MessageStatus", viewModel);
         }
     }

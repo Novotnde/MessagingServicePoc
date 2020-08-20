@@ -24,9 +24,7 @@
         @Html.ValidationMessageFor(m => m.Message.Body)
     </div>
 
-    @*@Html.HiddenFor(m => m.SmsMessage.Id)
-    @Html.AntiForgeryToken()*@
+    @Html.HiddenFor(m => m.Message.MessageId)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Send</button>
-
-
 }

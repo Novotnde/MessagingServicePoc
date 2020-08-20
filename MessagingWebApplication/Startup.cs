@@ -39,8 +39,8 @@ namespace MessagingWebApplication
 
         private void ConfigureTwilio()
         {
-            var twilioAccountSID = "AC4fd78b7c21f0e6523a001c0a7fde0bae";
-            var twilioAuthToken = "c2c9aa3013caad1bb072edddfd55b909";
+            var twilioAccountSID = "xxxx";
+            var twilioAuthToken = "xxxxxxxx";
 
             TwilioSenderExtensions.InitTwilioClient(twilioAccountSID, twilioAuthToken);
         }

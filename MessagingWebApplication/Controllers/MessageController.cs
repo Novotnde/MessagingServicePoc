@@ -50,7 +50,6 @@ namespace MessagingWebApplication.Controllers
             _context.Messages.Add(message);
             _context.SaveChanges();
             _messageSender.SendAsync(message);
-
             return View("MessageStatus", viewModel);
         }
     }

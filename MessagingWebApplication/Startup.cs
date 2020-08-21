@@ -50,8 +50,8 @@ namespace MessagingWebApplication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         private void ConfigureTwilio()
         {
-            var twilioAccountSID = "AC4fd78b7c21f0e6523a001c0a7fde0bae";
-            var twilioAuthToken = "1ab51ebd0d151bb9ef41310106cb9e43";
+            var twilioAccountSID = "xxxxxxxx";
+            var twilioAuthToken = "xxxxxxxxx";
 
             TwilioSenderExtensions.InitTwilioClient(twilioAccountSID, twilioAuthToken);
        

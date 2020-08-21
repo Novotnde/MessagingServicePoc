@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MessagingWebApplication.Models.ToDoItems>
+
+@{ 
+    ViewBag.Title = "ToDoItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h1>To Do Items</h1>
+<p>
+    @Html.ActionLink("New task","ToDoItem","ToDoItem", null, new {@class = "btn btn-primary" })
+</p>
+<table id="toDoItems" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Task</th>
+            <th>When</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Model)
+         {
+        <tr>
+            <td>@Html.ActionLink(todo.Title, "Details", "ToDoItem", new { id = todo.Id }, null)</td>
+            <td>@todo.Body</td>
+            <td>@todo.DateHappening</td>
+            <td>
+                <button data-todo-id="@todo.Id" class="btn-link js-delete">Delete</button>
+            </td>
+        </tr>
+          
+         }
+   </tbody>
+    
+</table>

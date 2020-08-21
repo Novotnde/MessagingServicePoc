@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.MessageSender.Contracts;
 using Core.MessageSender.Contracts.Models;
@@ -9,12 +11,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MessagingWebApplication.Controllers
 {
-    public class MessageController : Controller
+    public class EmailController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         private ApplicationDbContext _context;
 
-        private IMessageSender _messageSender;
-        public MessageController(IMessageSender messageSender, ApplicationDbContext context)
+        private IEmailSender _messageSender;
+        public EmailController(IEmailSender messageSender, ApplicationDbContext context)
         {
             this._messageSender = messageSender;
             this._context = context;
@@ -38,17 +45,17 @@ namespace MessagingWebApplication.Controllers
         }
 
         [ActionName("MessageStatus")]
-        public async Task<ActionResult> SendAsync(Message message)
+        public async Task<ActionResult> SendAsync(EmailMessage message)
         {
             var viewModel = new MessageViewModel
             {
-                Message = new Message()
+                Message = new EmailMessage()
                 {
-                    
+
                 }
-                
+
             };
-            await _context.Messages.AddAsync(message);
+            await _context.EmailMessages.AddAsync(message);
             await _context.SaveChangesAsync();
             await _messageSender.SendAsync(message);
             return View("MessageStatus", viewModel);

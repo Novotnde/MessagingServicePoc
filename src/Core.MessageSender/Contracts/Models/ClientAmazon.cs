@@ -9,5 +9,7 @@ namespace Core.MessageSender.Contracts.Models
         public string AccessKeyID { get; set; }
 
         public string SecretAccessKey { get; set; }
+
+        public Amazon.RegionEndpoint Location { get; set; }
     }
 }
